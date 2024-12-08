@@ -4,7 +4,7 @@ import win32gui
 
 
 class WindowManager:
-
+    @staticmethod
     def find_window_by_title_suffix(suffix):
         """Find a window by its title suffix using PyAutoGUI."""
         all_windows = pyautogui.getAllWindows()
@@ -14,6 +14,7 @@ class WindowManager:
                 return window
         return None
 
+    @staticmethod
     def activate_window(window):
         """
         Bring the specified window to the foreground using an Alt key press trick.

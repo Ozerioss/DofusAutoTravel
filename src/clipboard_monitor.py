@@ -5,34 +5,47 @@ import time
 
 
 class ClipboardMonitor:
+    def __init__(self, suffix, gui_log=None):
+        self.suffix = suffix
+        self.last_content = ""
+        self.gui_log = gui_log
+        self.running = False
 
-    def clipboard_monitor(suffix):
+    def log_message(self, message):
+        """Log a message to the GUI or print it."""
+        if self.gui_log:
+            self.gui_log(message)
+        print(message)
+
+    def monitor(self):
         """Monitor clipboard and perform actions for matching clipboard content."""
         last_content = pyperclip.paste()
-
-        print("Monitoring clipboard... Press Ctrl+C to stop.")
+        self.running = True
+        self.log_message("Monitoring clipboard ...")
         try:
-            while True:
+            while self.running:
                 current_content = pyperclip.paste()
-
-                # Check if the content has changed
                 if current_content != last_content:
                     if current_content.startswith("/travel"):
-                        print(f"Detected '/travel' command: {current_content}")
-
-                        window = WindowManager.find_window_by_title_suffix(suffix)
+                        self.log_message(f"Detected '/travel' command: {current_content}")
+                        window = WindowManager.find_window_by_title_suffix(self.suffix)
                         if window:
                             if WindowManager.activate_window(window):
-                                print(f"Switched to window: '{window.title}'.")
+                                self.log_message(f"Switched to window: '{window.title}'.")
                                 Actions.perform_action()
+                                self.log_message(f"Traveling to {current_content}")
                             else:
-                                print(f"Failed to activate window: '{window.title}'.")
+                                self.log_message(f"Failed to activate window: '{window.title}'.")
                         else:
-                            print(f"No window found ending with '{suffix}'.")
+                            self.log_message(f"No window found ending with '{self.suffix}'.")
 
                     last_content = current_content
 
                 # reduce CPU usage, can probably wait even longer tbh
                 time.sleep(0.5)
         except KeyboardInterrupt:
-            print("Clipboard monitoring stopped.")
+            self.log_message("Clipboard monitoring stopped.")
+
+    def stop(self):
+        """Stop the clipboard monitoring loop."""
+        self.running = False
