@@ -16,8 +16,6 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
 - **Graphical User Interface**:
   - Log viewer to display actions and events in real time.
   - Start and stop buttons for controlling monitoring.
-- **Cross-platform Compatibility**: Works on Windows (primary platform for window management).
-
 ---
 
 ## Installation
