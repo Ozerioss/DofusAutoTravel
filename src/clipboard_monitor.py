@@ -21,26 +21,25 @@ class ClipboardMonitor:
         """Monitor clipboard and perform actions for matching clipboard content."""
         last_content = pyperclip.paste()
         self.running = True
-        self.log_message("Monitoring clipboard ...")
+        self.log_message("Monitoring clipboard for /travel commands ...")
         try:
             while self.running:
                 current_content = pyperclip.paste()
-                if current_content != last_content:
-                    if current_content.startswith("/travel"):
-                        self.log_message(f"Detected '/travel' command: {current_content}")
-                        window = WindowManager.find_window_by_title_suffix(self.suffix)
-                        if window:
-                            if WindowManager.activate_window(window):
-                                self.log_message(f"Switched to window: '{window.title}'.")
-                                Actions.perform_action()
-                                self.log_message(f"Traveling to {current_content}")
-                            else:
-                                self.log_message(f"Failed to activate window: '{window.title}'.")
+                if current_content.startswith("/travel"):
+                    self.log_message(f"Detected '/travel' command: {current_content}")
+                    window = WindowManager.find_window_by_title_suffix(self.suffix)
+                    if window:
+                        if WindowManager.activate_window(window):
+                            self.log_message(f"Switched to window: '{window.title}'.")
+                            Actions.perform_action()
+                            self.log_message(f"Traveling to {current_content}")
                         else:
-                            self.log_message(f"No window found ending with '{self.suffix}'.")
+                            self.log_message(f"Failed to activate window: '{window.title}'.")
+                    else:
+                        self.log_message(f"No window found ending with '{self.suffix}'.")
 
-                    last_content = current_content
-
+                    pyperclip.copy("")  # empty clipboard
+                    self.log_message("Clipboard cleared after processing.")
                 # reduce CPU usage, can probably wait even longer tbh
                 time.sleep(0.5)
         except KeyboardInterrupt:

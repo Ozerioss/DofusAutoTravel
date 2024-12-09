@@ -29,7 +29,7 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
    
 3. Clone the project and install dependencies
    ```bash
-    git clone https://github.com/your-username/AutoTravel.git
+    git clone https://github.com/Ozerioss/DofusAutoTravel.git
     cd AutoTravel
    
     poetry install

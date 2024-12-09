@@ -22,4 +22,4 @@ class Actions:
         for _ in range(2):
             keyboard.press(Key.enter)
             keyboard.release(Key.enter)
-            time.sleep(0.1)
+            time.sleep(0.15)
