@@ -30,9 +30,18 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
 3. Clone the project and install dependencies
    ```bash
     git clone https://github.com/Ozerioss/DofusAutoTravel.git
-    cd AutoTravel
+    cd DofusAutoTravel
+    
+   ```
    
-    poetry install
+4. a) Installing through poetry
+   ```bash
+   poetry install
+   ```
+   
+4. b) Installing through requirements.txt (recommended if you do not want to install poetry)
+   ```bash
+   pip install -r requirements.txt
    ```
    
 4. Running the script
