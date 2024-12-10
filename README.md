@@ -33,6 +33,12 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
     cd AutoTravel
    
     poetry install
-    poetry run
    ```
+   
+4. Running the script
+    ```bash
+    poetry run 
+    or
+    python src/autotravel/main.py
+    ```
 
