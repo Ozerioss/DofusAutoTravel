@@ -2,7 +2,7 @@
 name = "autotravel"
 version = "0.1.0"
 description = "Simple detection of /travel commands in "
-authors = ["Your Name <you@example.com>"]
+authors = ["Ozerioss <ozerioss@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
