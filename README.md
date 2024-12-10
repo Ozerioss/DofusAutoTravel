@@ -31,10 +31,9 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
    ```bash
     git clone https://github.com/Ozerioss/DofusAutoTravel.git
     cd DofusAutoTravel
-    
    ```
    
-4. a) Installing through poetry
+4. a) Installing dependencies through poetry
    ```bash
    poetry install
    ```
@@ -50,4 +49,13 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
     or
     python src/autotravel/main.py
     ```
+5. Building an executable
+```bash
+poetry run pyinstaller --onefile --windowed --name=DofusAutoTravel main.py
+```
 
+### Contributing (WIP)
+To update requirements.txt through poetry
+    ```bash
+        poetry export --without-hashes -f requirements.txt -o requirements.txt
+    ```

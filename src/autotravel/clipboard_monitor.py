@@ -1,6 +1,6 @@
 import pyperclip
-from window_manager import WindowManager
-from actions import Actions
+from autotravel.window_manager import WindowManager
+from autotravel.actions import Actions
 import time
 
 
@@ -19,7 +19,6 @@ class ClipboardMonitor:
 
     def monitor(self):
         """Monitor clipboard and perform actions for matching clipboard content."""
-        last_content = pyperclip.paste()
         self.running = True
         self.log_message("Monitoring clipboard for /travel commands ...")
         try:

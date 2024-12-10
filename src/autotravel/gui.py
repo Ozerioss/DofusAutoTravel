@@ -1,6 +1,6 @@
 import threading
 from tkinter import Tk, Text, Button, Scrollbar, END, Frame, VERTICAL
-from clipboard_monitor import ClipboardMonitor
+from autotravel.clipboard_monitor import ClipboardMonitor
 
 
 class GUI:
