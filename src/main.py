@@ -1,4 +1,4 @@
-from src.autotravel.gui import GUI
+from autotravel.gui import GUI
 
 
 if __name__ == "__main__":

@@ -45,9 +45,9 @@ It features a graphical user interface (GUI) for starting and stopping monitorin
    
 4. Running the script
     ```bash
-    poetry run 
+    poetry run python src/main.py
     or
-    python src/autotravel/main.py
+    python src/main.py
     ```
 5. Building an executable
 ```bash
